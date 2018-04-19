@@ -119,6 +119,9 @@ aggregate_std = 814
 main_path = '/media/michele/Dati/myREFIT/' + appliance_name + '/'
 save_path = main_path + appliance_name + '.csv'
 
+# check if lengths of houses and channels are the same size
+assert len(params_appliance[appliance_name]['houses']) == len(params_appliance[appliance_name]['channels'])
+
 total_length = 0
 lengths = []
 
