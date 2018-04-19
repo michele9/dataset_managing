@@ -7,11 +7,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 
-appliance = 'microwave'
+appliance = 'kettle'
 
 save_path_tra = '/media/michele/Dati/myREFIT/microwave/' + appliance + '_training_' + '.csv'
 save_path_val = '/media/michele/Dati/myREFIT/microwave/' + appliance + '_validation_H17' + '.csv'
-save_path_test = '/media/michele/Dati/myREFIT/microwave/' + appliance + '_test_H19' + '.csv'
+save_path_test = '/media/michele/Dati/myREFIT/microwave/' + appliance + '_test_on' + '.csv'
 
 chunksize = 10 ** 6
 
@@ -26,7 +26,7 @@ for idx, chunk in enumerate(pd.read_csv(save_path_test,
 
     if True:
 
-
+        # de-normalization
         #chunk['aggregate'] = chunk['aggregate'] * 822 + 522
         #chunk[appliance] = chunk[appliance] * 1000 + 700
 

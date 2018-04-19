@@ -105,10 +105,10 @@ params_appliance = {
         'mean': 400,
         'std': 700,
         's2s_length': 2000,
-        'houses': [],
-        'channels': [],
-        'test_house': 0,
-        'validation_house': 0,
+        'houses': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 13, 15, 16, 17, 18, 19, 20],
+        'channels': [5, 2, 6, 5, 3, 2, 5, 4, 3, 5, 3, 3, 5, 4, 5, 2, 4],
+        'test_house': 20,
+        'validation_house': 19,
     }
 }
 

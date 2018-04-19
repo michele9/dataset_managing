@@ -18,7 +18,7 @@ APPLIANCEs:
 2- Microwave
 3- Fridge
 4- Dish Washer
-5- washing Machine
+5- Washing Machine
 .............................................................................................................
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ ORDERED BY CHANNEL ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -273,7 +273,7 @@ House 3                                                                     note
 
 
 -------------------------------------------------------------------------------------------------------------
-House 4                                                                     notes: too many fridges
+House 4                                                                     notes: too many fridges, 2 washing machines
 0.Aggregate,
 
 9.Kettle, Swan, Unknown
@@ -447,7 +447,7 @@ House 19                                                                    note
 
 
 -------------------------------------------------------------------------------------------------------------
-House 20                                                                    notes: bad data for kettle
+House 20                                                                    notes: ok
 0.Aggregate,
 
 9.Kettle
