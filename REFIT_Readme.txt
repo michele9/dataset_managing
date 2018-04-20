@@ -22,11 +22,14 @@ The subset of all appliances in a household that was monitored reflects the docu
 FILE FORMAT
 The file format is CSV (comma separated values) and is laid out as follows;
 DateTime (YYYY-MM-DD HH:mm:ss), UNIX TIMESTAMP (UCT), Aggregate, Appliance1, Appliance2, Appliance3, ... , Appliance9
-Additionally data was only recorded when there was a change in load; this data has been forward filled with the last actual value recored unless the gap is greater than 2 minutes in which case it was filled with 0. The sensors are also not synchronised as our collection script polled every 6-8 seconds; the sensor may have updated anywhere in the last 6-8 seconds.
+Additionally data was only recorded when there was a change in load;
+this data has been forward filled with the last actual value recored unless the gap is greater than 2 minutes in which case it was filled with 0.
+The sensors are also not synchronised as our collection script polled every 6-8 seconds; the sensor may have updated anywhere in the last 6-8 seconds.
 The CSV files have more rows than Excel is able to display at one time and should therefore be opened using a program such as Matlab or other data processing application.
 
 MISSING DATA
-During the course of the study there are a few periods of missing data (notably February 2014). Outages were due to a number of factors, including household internet failure, hardware failures, network routing issues.
+During the course of the study there are a few periods of missing data (notably February 2014).
+ Outages were due to a number of factors, including household internet failure, hardware failures, network routing issues.
 
 DATA CLEANING
 All of the data has been cleaned to forward fill NaN values and remove values which exceed 4000 Watts on the IAM datastreams as this is above the maximum possible power draw.
