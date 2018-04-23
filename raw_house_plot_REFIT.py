@@ -16,7 +16,7 @@ building = 'House20'
 filename = path + 'CLEAN_' + building + '.csv'
 
 # Number of sample to plot
-chunksize = 5*10**6
+chunksize = 5*10**5
 
 
 
@@ -31,7 +31,7 @@ for idx, chunk in enumerate(pd.read_csv(filename,
 
     fig2 = plt.figure()
     plt.plot(chunk['Aggregate'])
-    plt.plot(chunk['Appliance5'])
+    plt.plot(chunk['Appliance1'])
     #plt.plot(chunk['Appliance2'])
     #plt.plot(chunk['Appliance3'])
     #plt.plot(chunk['Appliance4'])
