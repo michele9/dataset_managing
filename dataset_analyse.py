@@ -4,24 +4,31 @@
 
 from dataset_managing.Arguments import *
 import numpy as np
+import os
 import matplotlib.pyplot as plt
 import pandas as pd
 
 appliance = args.appliance_name
-print(appliance)
 
-save_path_tra = '/media/michele/Dati/myREFIT/' + appliance + '/' + appliance + '_training_' + '.csv'
-save_path_val = '/media/michele/Dati/myREFIT/' + appliance + '/' + appliance + '_validation_H17' + '.csv'
-save_path_test = '/media/michele/Dati/myREFIT/' + appliance + '/' + appliance + '_test_H19' + '.csv'
+dataset = 'training'
+#dataset = 'test'
+#dataset = 'validation'
+
+# Looking for the selected test set
+for filename in os.listdir(args.datadir + appliance):
+    if dataset.upper() in filename.upper():
+        test_filename = filename
+
+print(test_filename)
 
 chunksize = 4 * 10 ** 6
 
-for idx, chunk in enumerate(pd.read_csv(save_path_tra,
+for idx, chunk in enumerate(pd.read_csv(args.datadir + appliance + '/' + test_filename,
                                         # index_col=False,
                                         names=['aggregate', appliance],
                                         # usecols=[1, 2],
                                         # iterator=True,
-                                        skiprows=15 * 10 ** 6,
+                                        #skiprows=15 * 10 ** 6,
                                         chunksize=chunksize,
                                         header=0
                                         )):
@@ -40,7 +47,7 @@ for idx, chunk in enumerate(pd.read_csv(save_path_tra,
         ax1.plot(chunk[appliance])
 
         ax1.grid()
-        ax1.set_title('{:}'.format(save_path_tra), fontsize=14, fontweight='bold',
+        ax1.set_title('{:}'.format(test_filename), fontsize=14, fontweight='bold',
                       #y=1.08
                       )
         ax1.set_ylabel('Power normalized')
