@@ -46,7 +46,7 @@ start_time = time.time()
 
 # CLEAN_REFIT_081116 path
 path = '/media/michele/Dati/CLEAN_REFIT_081116/'
-appliance_name = 'microwave'
+appliance_name = 'washingmachine'
 
 
 params_appliance = {
@@ -83,8 +83,8 @@ params_appliance = {
         's2s_length': 512,
         'houses': [1, 2, 3, 5, 6, 7, 8, 9, 10, 12, 15, 17, 19, 20],
         'channels': [1, 1, 2, 1, 1, 1, 1, 1, 4, 1, 1, 2, 1, 1],
-        'test_house': 0,
-        'validation_house': 0,
+        'test_house': 20,
+        'validation_house': 19,
     },
     'dishwasher': {
         'windowlength': 599,
@@ -95,8 +95,8 @@ params_appliance = {
         's2s_length': 1536,
         'houses': [5, 6, 7, 9, 10, 13, 16, 18, 20],
         'channels': [4, 3, 6, 4, 6, 4, 6, 6, 5],
-        'test_house': 0,
-        'validation_house': 0,
+        'test_house': 20,
+        'validation_house': 18,
     },
     'washingmachine': {
         'windowlength': 599,
@@ -176,7 +176,7 @@ save_path_test = main_path + appliance_name + '_test_' + 'H' + \
 
 
 # -------------------------------------- normalization and splitting ---------------------------------------------------
-print("Normalization and splitting into train, validation and test...")
+print("\nNormalization and splitting into train, validation and test...")
 if not os.path.isfile(save_path_tra):
 
     if lengths == []:
@@ -189,7 +189,7 @@ if not os.path.isfile(save_path_tra):
         print("    Variable lengths and total_lengths loaded.")
     print("    Done. \n")
 
-    print("    Total size of dataset is {:d}".format(total_length))
+    print("    Total size of the dataset is {:.3f} M rows.".format(total_length/10**6))
 
     temp = pd.read_csv(save_path,
                        index_col=False,
@@ -215,32 +215,32 @@ if not os.path.isfile(save_path_tra):
     # ------------------------------------------  saving splitted  -----------------------------------------------------
     test = temp.iloc[n_rows_test:n_rows_test+lengths[params_appliance[appliance_name]['houses']
                        .index(params_appliance[appliance_name]['test_house'])], :]
-    print("    size of test set is {:d}".format(test.shape[0]))
     test.to_csv(save_path_test, index=False)
+    print("        size of test set is {:.3f} M rows (House {:d})."
+          .format(test.shape[0]/10 ** 6, params_appliance[appliance_name]['test_house']))
     del test
 
     val = temp.iloc[n_rows_val:n_rows_val + lengths[params_appliance[appliance_name]['houses']
                       .index(params_appliance[appliance_name]['validation_house'])], :]
-    print("    size of validation set is {:d}".format(val.shape[0]))
     val.to_csv(save_path_val, index=False)
+    print("        size of validation set is {:.3f} M rows (House {:d})."
+          .format(val.shape[0] / 10 ** 6, params_appliance[appliance_name]['validation_house']))
     del val
 
     train = temp.iloc[0:n_rows_val, :]
-    print("    size of training set is {:d}".format(train.shape[0]))
     train.to_csv(save_path_tra, index=False)
+    print("        size of training set is {:.3f} M rows.".format(train.shape[0]/10 ** 6))
     del train
 
     save_file('./parameters/', 'mean_agg.p', mean_agg_actual)
     save_file('./parameters/', 'std_agg.p', std_agg_actual)
 
 
-print("    Mean and standard deviation values used are:")
-print("    Mean = " + str(aggregate_mean) + " ," + "STD = " + str(aggregate_std))
-print("    Mean = {:d}, STD = {:d}".format(aggregate_mean, aggregate_std))
+print("    Mean and standard deviation values USED for AGGREGATE are:")
+print("        Mean = {:d}, STD = {:d}".format(aggregate_mean, aggregate_std))
 print("    Mean and standard deviation values calculated are:")
-print("    Mean = " + str(mean_agg_actual) + " ," + "STD = " + str(std_agg_actual))
-print("    Mean = {:.6f}, STD = {:.6f}".format(mean_agg_actual, std_agg_actual))
-print("    Done.")
+print("        Mean = {:.6f}, STD = {:.6f}".format(mean_agg_actual, std_agg_actual))
+print("\n    Done.")
 print("    - whole merged file in: " + save_path)
 print("    - training sequence in: " + save_path_tra)
 print("    - validation sequence in: " + save_path_tra)
