@@ -29,20 +29,30 @@ for idx, chunk in enumerate(pd.read_csv(filename,
                                         # header=0
                                         )):
 
-    fig2 = plt.figure()
-    plt.plot(chunk['Aggregate'])
-    plt.plot(chunk['Appliance1'])
-    #plt.plot(chunk['Appliance2'])
-    #plt.plot(chunk['Appliance3'])
-    #plt.plot(chunk['Appliance4'])
-    #plt.plot(chunk['Appliance5'])
-    #plt.plot(chunk['Appliance6'])
-    #plt.plot(chunk['Appliance7'])
-    #plt.plot(chunk['Appliance8'])
-    #plt.plot(chunk['Appliance9'])
-    plt.grid()
+
+    fig = plt.figure(num='Figure {:}'.format(idx))
+    ax1 = fig.add_subplot(111)
+
+    ax1.plot(chunk['Aggregate'])
+    ax1.plot(chunk['Appliance1'])
+    #ax1.plot(chunk['Appliance2'])
+    #ax1.plot(chunk['Appliance3'])
+    #ax1.plot(chunk['Appliance4'])
+    #ax1.plot(chunk['Appliance5'])
+    #ax1.plot(chunk['Appliance6'])
+    #ax1.plot(chunk['Appliance7'])
+    #ax1.plot(chunk['Appliance8'])
+    #ax1.plot(chunk['Appliance9'])
+
+
+    ax1.set_title('{:}'.format(filename), fontsize=14, fontweight='bold',
+                  # y=1.08
+                  )
+    ax1.set_ylabel('Power [W]')
+    ax1.set_xlabel('samples')
+    ax1.legend(['aggregate', 'appliance'])
+    ax1.grid()
 
     mng = plt.get_current_fig_manager()
     mng.resize(*mng.window.maxsize())
-
-    plt.show(fig2)
+    plt.show(fig)
