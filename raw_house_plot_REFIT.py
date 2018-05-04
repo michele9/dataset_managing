@@ -2,15 +2,17 @@
 #
 # MD
 
+from dataset_managing.Arguments import *
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 
 
+
 path = '/media/michele/Dati/CLEAN_REFIT_081116/'
 
 # Change house number from here
-building = 'House20'
+building = 'House6'
 
 
 filename = path + 'CLEAN_' + building + '.csv'
@@ -26,7 +28,7 @@ for idx, chunk in enumerate(pd.read_csv(filename,
                                         # usecols=[1, 2],
                                         # iterator=True,
                                         chunksize=chunksize,
-                                        # header=0
+                                        header=0
                                         )):
 
 
@@ -35,7 +37,7 @@ for idx, chunk in enumerate(pd.read_csv(filename,
 
     ax1.plot(chunk['Aggregate'])
     ax1.plot(chunk['Appliance1'])
-    #ax1.plot(chunk['Appliance2'])
+    ax1.plot(chunk['Appliance2'])
     #ax1.plot(chunk['Appliance3'])
     #ax1.plot(chunk['Appliance4'])
     #ax1.plot(chunk['Appliance5'])
@@ -56,3 +58,5 @@ for idx, chunk in enumerate(pd.read_csv(filename,
     mng = plt.get_current_fig_manager()
     mng.resize(*mng.window.maxsize())
     plt.show(fig)
+
+    del chunk

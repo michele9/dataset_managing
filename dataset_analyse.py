@@ -10,8 +10,8 @@ import pandas as pd
 
 appliance = args.appliance_name
 
-dataset = 'training'
-#dataset = 'test'
+#dataset = 'training'
+dataset = 'test'
 #dataset = 'validation'
 
 # Looking for the selected test set
@@ -47,9 +47,7 @@ for idx, chunk in enumerate(pd.read_csv(args.datadir + appliance + '/' + test_fi
         ax1.plot(chunk[appliance])
 
         ax1.grid()
-        ax1.set_title('{:}'.format(test_filename), fontsize=14, fontweight='bold',
-                      #y=1.08
-                      )
+        ax1.set_title('{:}'.format(test_filename), fontsize=14, fontweight='bold')
         ax1.set_ylabel('Power normalized')
         ax1.set_xlabel('samples')
         ax1.legend(['aggregate', appliance])
