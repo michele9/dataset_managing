@@ -65,7 +65,6 @@ House 4                                                                     note
 
 -------------------------------------------------------------------------------------------------------------
 House 5                                                                     notes: OK
-0.Aggregate,
 1.Fridge-Freezer, Fisher & Paykel, Unknown
 3.Washing Machine, AEG, L99695HWD
 4.Dishwasher, Unknown, Unknown
