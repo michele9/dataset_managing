@@ -13,7 +13,7 @@ import pandas as pd
 path = '/media/michele/Dati/CLEAN_REFIT_081116/'
 
 # Change house number from here
-building = 'House20'
+building = 'House19'
 
 
 filename = path + 'CLEAN_' + building + '.csv'
@@ -38,7 +38,7 @@ for idx, chunk in enumerate(pd.read_csv(filename,
     ax1 = fig.add_subplot(111)
 
     ax1.plot(chunk['Unix'], chunk['Aggregate'])
-    ax1.plot(chunk['Unix'], chunk['Appliance5'])
+    ax1.plot(chunk['Unix'], chunk['Appliance1'])
     #ax1.plot(chunk['Unix'], chunk['Appliance2'])
     #ax1.plot(chunk['Unix'], chunk['Appliance3'])
     #ax1.plot(chunk['Unix'], chunk['Appliance4'])

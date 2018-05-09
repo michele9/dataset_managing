@@ -83,18 +83,21 @@ House 6                                                                     note
 -------------------------------------------------------------------------------------------------------------
 
 -------------------------------------------------------------------------------------------------------------
-House 7                                                                     note: OK
+House 7                                                                     note: Too many Fridges-freezers
 0.Aggregate,
 1.Fridge, Bosch, KSR30422GB
+2.Freezer
+3.Freezer
 5.Washing Machine, Bosch, Unknown
 6.Dishwasher, Unknown, Unknown, (Change 20 May 2014)
 9.Kettle, Sainsburys, 121988254
 -------------------------------------------------------------------------------------------------------------
 
 -------------------------------------------------------------------------------------------------------------
-House 8                                                                     notes: OK
+House 8                                                                     notes: Too many Fridges-freezers
 0.Aggregate,
 1.Fridge, Liebherr, KP2620
+2.Frezzer
 4.Washing Machine,
 8.Microwave, Panasoinc, NN-CT565MBPQ
 9.Kettle, Morphy Richards, 43615

@@ -26,7 +26,7 @@ def load(path, building, appliance, channel):
 
 
 start_time = time.time()
-appliance_name = 'fridge'
+appliance_name = 'dishwasher'
 
 # CLEAN_REFIT_081116 path
 path = '/media/michele/Dati/CLEAN_REFIT_081116/'
@@ -67,8 +67,8 @@ params_appliance = {
         'mean': 200,
         'std': 400,
         's2s_length': 512,
-        'houses': [1, 2, 3, 5, 6, 7, 8, 9, 10, 12, 15, 17, 19, 20],
-        'channels': [1, 1, 2, 1, 1, 1, 1, 1, 4, 1, 1, 2, 1, 1],
+        'houses': [1, 2, 5, 9, 12, 15],
+        'channels': [1, 1, 1, 1,  1, 1],
         'test_house': 20,
         'validation_house': 19,
     },
@@ -144,7 +144,7 @@ for idx, filename in enumerate(os.listdir(path)):
             (val[appliance_name] - params_appliance[appliance_name]['mean']) / params_appliance[appliance_name]['std']
 
         # Save
-        val.to_csv(save_path + appliance_name + '_validation_' + 'H' + str(params_appliance[appliance_name]['test_house'])
+        val.to_csv(save_path + appliance_name + '_validation_' + 'H' + str(params_appliance[appliance_name]['validation_house'])
                    + '.csv', index=False)
 
         print("Size of validation set is {:.3f} M rows (House {:d})."
