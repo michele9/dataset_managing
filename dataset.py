@@ -26,7 +26,8 @@ def load(path, building, appliance, channel):
 
 
 start_time = time.time()
-appliance_name = 'fridge'
+appliance_name = 'microwave'
+print(appliance_name)
 
 # CLEAN_REFIT_081116 path
 path = '/media/michele/Dati/CLEAN_REFIT_081116/'
@@ -58,7 +59,7 @@ params_appliance = {
         'houses': [4, 10, 12, 15, 17, 19],
         'channels': [8, 8, 3, 7, 7, 4],
         'test_house': 19,
-        'validation_house': 17,
+        'validation_house': 4,
     },
     'fridge': {
         'windowlength': 599,
