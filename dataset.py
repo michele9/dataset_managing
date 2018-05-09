@@ -26,7 +26,7 @@ def load(path, building, appliance, channel):
 
 
 start_time = time.time()
-appliance_name = 'dishwasher'
+appliance_name = 'fridge'
 
 # CLEAN_REFIT_081116 path
 path = '/media/michele/Dati/CLEAN_REFIT_081116/'
@@ -55,8 +55,8 @@ params_appliance = {
         'mean': 500,
         'std': 800,
         's2s_length': 128,
-        'houses': [2, 3, 4, 5, 6, 8, 9, 10, 12, 13, 15, 17, 19],
-        'channels': [5, 8, 8, 7, 6, 8, 6, 8, 5, 8, 7, 7, 4],
+        'houses': [4, 10, 12, 15, 17, 19],
+        'channels': [8, 8, 3, 7, 7, 4],
         'test_house': 19,
         'validation_house': 17,
     },
@@ -69,8 +69,8 @@ params_appliance = {
         's2s_length': 512,
         'houses': [1, 2, 5, 9, 12, 15],
         'channels': [1, 1, 1, 1,  1, 1],
-        'test_house': 20,
-        'validation_house': 19,
+        'test_house': 12,
+        'validation_house': 15,
     },
     'dishwasher': {
         'windowlength': 599,
