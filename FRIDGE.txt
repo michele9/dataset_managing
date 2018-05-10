@@ -14,7 +14,7 @@
 # ----------------------------------------------------------------------------------------------------------------------
 
 
-House 1                                                                     notes: too many fridges DISCARDED
+House 1 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  notes: too many fridges DISCARDED
 0.Aggregate
 1.Fridge, Hotpoint, RLA50P
 2. Freezer
