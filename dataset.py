@@ -8,7 +8,9 @@ import re
 def load(path, building, appliance, channel):
     # load csv
     file_name = path + 'CLEAN_House' + str(building) + '.csv'
-
+    #print('inside function')
+    #print(appliance)
+    #print(channel)
     single_csv = pd.read_csv(file_name,
                              header=0,
                              names=['aggregate', appliance],
@@ -26,7 +28,7 @@ def load(path, building, appliance, channel):
 
 
 start_time = time.time()
-appliance_name = 'microwave'
+appliance_name = 'washingmachine'
 print(appliance_name)
 
 # CLEAN_REFIT_081116 path
@@ -106,7 +108,7 @@ for idx, filename in enumerate(os.listdir(path)):
     single_step_time = time.time()
 
     if filename == 'CLEAN_House' + str(params_appliance[appliance_name]['test_house']) + '.csv':
-
+        print('File: ' + filename + ' test set')
         # Loading
         test = load(path,
              params_appliance[appliance_name]['test_house'],
@@ -129,7 +131,7 @@ for idx, filename in enumerate(os.listdir(path)):
         del test
 
     elif filename == 'CLEAN_House' + str(params_appliance[appliance_name]['validation_house']) + '.csv':
-
+        print('File: ' + filename + ' validation set')
         # Loading
         val = load(path,
              params_appliance[appliance_name]['validation_house'],
@@ -165,6 +167,12 @@ for idx, filename in enumerate(os.listdir(path)):
                        [params_appliance[appliance_name]['houses']
                               .index(int(re.search(r'\d+', filename).group()))]
                        )
+
+            # Normalization
+            csv['aggregate'] = (csv['aggregate'] - aggregate_mean) / aggregate_std
+            csv[appliance_name] = \
+                (csv[appliance_name] - params_appliance[appliance_name]['mean']) / params_appliance[appliance_name][
+                    'std']
 
             rows, columns = csv.shape
             total_length += rows

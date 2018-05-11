@@ -78,6 +78,8 @@ def get_arguments():
 
 args = get_arguments()
 
+aggregate_mean = 522
+aggregate_std = 814
 params_appliance = {
     'kettle': {
         'windowlength': 599,
@@ -98,10 +100,10 @@ params_appliance = {
         'mean': 500,
         'std': 800,
         's2s_length': 128,
-        'houses': [2, 3, 4, 5, 6, 8, 9, 10, 12, 13, 15, 17, 19],
-        'channels': [5, 8, 8, 7, 6, 8, 6, 8, 5, 8, 7, 7, 4],
+        'houses': [4, 10, 12, 15, 17, 19],
+        'channels': [8, 8, 3, 7, 7, 4],
         'test_house': 19,
-        'validation_house': 17,
+        'validation_house': 4,
     },
     'fridge': {
         'windowlength': 599,
@@ -110,10 +112,10 @@ params_appliance = {
         'mean': 200,
         'std': 400,
         's2s_length': 512,
-        'houses': [1, 2, 3, 5, 6, 7, 8, 9, 10, 12, 15, 17, 19, 20],
-        'channels': [1, 1, 2, 1, 1, 1, 1, 1, 4, 1, 1, 2, 1, 1],
-        'test_house': 20,
-        'validation_house': 19,
+        'houses': [2, 5, 9, 12, 15],
+        'channels': [1, 1, 1,  1, 1],
+        'test_house': 12,
+        'validation_house': 15,
     },
     'dishwasher': {
         'windowlength': 599,
@@ -122,8 +124,8 @@ params_appliance = {
         'mean': 700,
         'std': 1000,
         's2s_length': 1536,
-        'houses': [5, 6, 7, 9, 10, 13, 16, 18, 20],
-        'channels': [4, 3, 6, 4, 6, 4, 6, 6, 5],
+        'houses': [5, 7, 9, 13, 16, 18, 20],
+        'channels': [4, 6, 4, 4, 6, 6, 5],
         'test_house': 20,
         'validation_house': 18,
     },
@@ -134,12 +136,13 @@ params_appliance = {
         'mean': 400,
         'std': 700,
         's2s_length': 2000,
-        'houses': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 13, 15, 16, 17, 18, 19, 20],
-        'channels': [5, 2, 6, 5, 3, 2, 5, 4, 3, 5, 3, 3, 5, 4, 5, 2, 4],
+        'houses': [2, 5, 7, 8, 9, 10, 13, 15, 16, 17, 18, 19, 20],
+        'channels': [2, 3, 5, 4, 3, 5, 3, 3, 5, 4, 5, 2, 4],
         'test_house': 20,
         'validation_house': 19,
     }
 }
+
 
 print('Arguments: ')
 print(args)

@@ -12,13 +12,13 @@ import pandas as pd
 path = '/media/michele/Dati/CLEAN_REFIT_081116/'
 
 # Change house number from here
-building = 'House13'
+building = 'House1'
 
 
 filename = path + 'CLEAN_' + building + '.csv'
 
 # Number of sample to plot
-chunksize = 2*10**6
+chunksize = 15*10**5
 
 
 for idx, chunk in enumerate(pd.read_csv(filename,
@@ -35,7 +35,7 @@ for idx, chunk in enumerate(pd.read_csv(filename,
     ax1 = fig.add_subplot(111)
 
     ax1.plot(chunk['Unix'], chunk['Aggregate'])
-    ax1.plot(chunk['Unix'], chunk['Appliance9'])
+    ax1.plot(chunk['Unix'], chunk['Appliance5'])
     #ax1.plot(chunk['Unix'], chunk['Appliance2'])
     #ax1.plot(chunk['Unix'], chunk['Appliance3'])
     #ax1.plot(chunk['Unix'], chunk['Appliance4'])
@@ -44,6 +44,7 @@ for idx, chunk in enumerate(pd.read_csv(filename,
     #ax1.plot(chunk['Unix'], chunk['Appliance7'])
     #ax1.plot(chunk['Unix'], chunk['Appliance8'])
     #ax1.plot(chunk['Unix'], chunk['Appliance9'])
+    ax1.plot(chunk['Unix'], chunk['Issues']*1000)
 
     #ax1.plot(chunk['Aggregate'])
     #ax1.plot(chunk['Appliance6'])
